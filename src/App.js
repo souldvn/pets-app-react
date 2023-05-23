@@ -1,5 +1,6 @@
 import { React, useEffect }from 'react'
 import './App.css';
+import TicTac from "./components/TicTac";
 
 const tg = window.Telegram.WebApp
 
@@ -9,14 +10,11 @@ function App() {
         tg.ready()
     })
 
-    const onClose = () =>{
-        tg.close()
-    }
+
 
   return (
     <div className="App">
-      привет
-        <button onClick={onClose}>Закрыть</button>
+      <TicTac/>
     </div>
   );
 }
