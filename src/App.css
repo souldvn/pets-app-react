@@ -4,7 +4,14 @@
     box-sizing: border-box;
 }
 
+.App{
+    display: flex;
+    margin: 0 auto;
+    background: -webkit-linear-gradient(90deg, #fef1d9,#c7e0f3);
+    height: 100vh;
+}
+
 body {
-    background: #e7c49c;
+
     color: var(--tg-theme-text-color);
 }

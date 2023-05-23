@@ -66,11 +66,17 @@ const TicTacToe = () => {
 
     return (
         <div className="board">
-            {board.map((cell, index) => {
-                return renderCell(index);
-            })}
-            {winner && <p>{winner === 'Draw' ? 'Draw' : `Winner is ${winner}`}</p>}
-            <button onClick={resetBoard}>Reset</button>
+            <div className='cells-wrapper'>
+                {board.map((cell, index) => {
+                    return renderCell(index);
+                })}
+
+            </div>
+            <div className='result-container'>
+                {winner && <p className='result'>{winner === 'Draw' ? 'Ничья' : `Победитель - ${winner}`}</p>}
+                <button className='button' onClick={resetBoard}>Заново</button>
+            </div>
+
         </div>
     );
 };
