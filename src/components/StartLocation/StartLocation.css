@@ -1,0 +1,19 @@
+
+
+.wrapper{
+    background-image: url("../../images/mainback.jpg");
+    background-size: cover;
+    background-position: center center;
+    width: 100vh;
+    height: 100vh;
+    position: relative;
+}
+
+.mainpic{
+    position: absolute;
+    width: 410px;
+    height: 410px;
+    bottom: 100px;
+    left: 0;
+
+}
