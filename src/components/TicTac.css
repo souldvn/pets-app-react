@@ -36,6 +36,7 @@
     background: darkkhaki ;
     border:none;
     border-radius: 10px;
+    font-size: 16px;
 }
 
 .result-container {
@@ -52,5 +53,6 @@
     flex-wrap: wrap;
 }
 p{
+    color: black;
     font-size: 20px;
 }

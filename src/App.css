@@ -9,7 +9,10 @@
 .App{
     display: flex;
     margin: 0 auto;
-    background: -webkit-linear-gradient(90deg, #fef1d9,#c7e0f3);
+    /*background: -webkit-linear-gradient(90deg, #fef1d9,#c7e0f3);*/
+    background-image: url("images/фон.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
 }
 

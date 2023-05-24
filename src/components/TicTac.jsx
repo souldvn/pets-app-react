@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import './TicTac.css'
 import pet from '../images/pet.png'
 import anot from '../images/anot.png'
+
 
 const TicTacToe = () => {
     const [board, setBoard] = useState(Array(9).fill(null));
@@ -59,10 +60,12 @@ const TicTacToe = () => {
     };
 
     const resetBoard = () => {
+
         setBoard(Array(9).fill(null));
         setPlayer('X');
         setWinner(null);
     };
+
 
     return (
         <div className="board">
