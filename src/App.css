@@ -10,13 +10,17 @@
     display: flex;
     margin: 0 auto;
     /*background: -webkit-linear-gradient(90deg, #fef1d9,#c7e0f3);*/
-    background-image: url("images/фон.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+
     height: 100vh;
 }
 
 body {
+    background-image: url("images/фон.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    /*width: 100%;*/
+
 
     color: var(--tg-theme-text-color);
 }
