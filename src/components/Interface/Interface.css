@@ -1,0 +1,44 @@
+.interface{
+    position: absolute;
+    padding: 10px 23px;
+}
+
+.emotional{
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    width: 175px;
+    height: 91px;
+    position: absolute;
+    padding: 7px 12px;
+}
+.progress{
+    list-style: none;
+}
+
+.progress-bar{
+    background: #FFFFFF;
+    border-radius: 100px;
+    width: 152px;
+    height: 8px;
+
+}
+
+.success{
+    width: 70%;
+    height: 100%;
+    border-radius: 100px;
+    background: #4EF387;
+}
+
+.money {
+    position: absolute;
+    /*right: 0;*/
+
+    right: 0;
+    transform: translate(700%);
+}
+
+.coin {
+    width: 36px;
+    height: 36px;
+}
