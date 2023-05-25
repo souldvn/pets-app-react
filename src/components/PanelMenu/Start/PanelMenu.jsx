@@ -12,19 +12,19 @@ import play from '../../../images/игра.png'
                     <ul>
                         <li>
                             <img className='menu-image' src={sleep} alt=''/>
-                            спать
+                            <span>спать</span>
                         </li>
                         <li>
                             <img className='menu-image' src={eat} alt=''/>
-                            кормить
+                            <span>кормить</span>
                         </li>
                         <li>
                             <img className='menu-image' src={walk} alt=''/>
-                            гулять
+                            <span>гулять</span>
                         </li>
                         <li>
                             <img className='menu-image' src={play} alt=''/>
-                            играть
+                            <span>играть</span>
                         </li>
                     </ul>
                 </nav>

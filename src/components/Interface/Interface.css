@@ -12,7 +12,7 @@
     background: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     width: 175px;
-    height: 91px;
+    height: 100px;
     /*position: absolute;*/
     padding: 7px 12px;
 }
@@ -47,4 +47,8 @@
 .coin {
     width: 36px;
     height: 36px;
+}
+
+span{
+    color: black;
 }
