@@ -1,0 +1,21 @@
+.wrapper{
+
+    background-image: url("../../images/кухня.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.mainpic{
+    margin: 0 auto;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 410px;
+    height: 410px;
+    bottom: 60px;
+}

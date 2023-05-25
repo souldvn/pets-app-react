@@ -1,12 +1,16 @@
 import React from 'react';
-import './StartLocation.css'
+import styles from './StartLocation.module.css'
 import cat from '../../images/котик.png'
+import PanelMenu from "../PanelMenu/Start/PanelMenu";
+import Interface from "../Interface/Interface";
+
 
 const StartLocation = () => {
     return (
-        <div className="wrapper">
-            <img className='mainpic' src={cat} alt=""/>
-
+        <div className={styles.wrapper}>
+            <Interface/>
+            <img className={styles.mainpic} src={cat} alt=""/>
+            <PanelMenu/>
         </div>
     );
 };
