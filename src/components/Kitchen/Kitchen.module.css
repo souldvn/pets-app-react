@@ -8,6 +8,13 @@
     overflow: hidden;
     position: relative;
 }
+.home{
+    padding: 10px;
+    background: #FFFFFF;
+    position: absolute;
+    bottom: 100px;
+    border-radius: 20px;
+}
 
 .mainpic{
     margin: 0 auto;
