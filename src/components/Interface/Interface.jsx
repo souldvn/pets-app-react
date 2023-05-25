@@ -30,7 +30,7 @@ const Interface = () => {
             </div>
             <div className="money">
                 <img className='coin' src={coin} alt=''/>
-                <span>143</span>
+                <span>144</span>
             </div>
         </div>
     );

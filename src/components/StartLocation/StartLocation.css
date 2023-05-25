@@ -1,19 +1,21 @@
 
 
 .wrapper{
+    overflow-x: hidden;
+    margin: 0 auto;
     background-image: url("../../images/mainback.jpg");
     background-size: cover;
     background-position: center center;
-    width: 100vh;
-    height: 100vh;
-    position: relative;
+    width: 1000px;
+    height: 750px;
+    /*position: relative;*/
 }
 
 .mainpic{
     position: absolute;
     width: 410px;
     height: 410px;
-    bottom: 100px;
+    bottom: 60px;
     left: 0;
 
 }

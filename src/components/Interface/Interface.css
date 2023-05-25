@@ -1,6 +1,7 @@
 .interface{
     position: absolute;
     padding: 10px 23px;
+    margin: 0 auto;
 }
 
 .emotional{

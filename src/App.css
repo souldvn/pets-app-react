@@ -1,4 +1,7 @@
 * {
+    width: 100vh;
+    height: 100vh;
+    overflow: hidden;
     font-family: 'Roboto', sans-serif;
     font-family: 'Rubik', sans-serif;
     margin: 0;
@@ -7,8 +10,10 @@
 }
 
 .App{
-    display: flex;
+    overflow-x: hidden;
     margin: 0 auto;
+    display: flex;
+    width: 100vh;
     /*background: -webkit-linear-gradient(90deg, #fef1d9,#c7e0f3);*/
 
     height: 100vh;
