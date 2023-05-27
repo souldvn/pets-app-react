@@ -1,10 +1,8 @@
 import React from 'react';
 import './Interface.css'
 import coin from '../../images/монетка.png'
-
-const Interface = () => {
+const Interface = (props) => {
     return (
-
         <div className="interface">
             <div className='emotional'>
                 <ul className="progress">
@@ -17,7 +15,7 @@ const Interface = () => {
                     <li>
                         <span>сытость</span>
                         <div className='progress-bar'>
-                            <div className="success"></div>
+                            <div style={{ width: props.barWidth }} className="success"></div>
                         </div>
                     </li>
                     <li>
