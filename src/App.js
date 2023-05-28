@@ -4,6 +4,7 @@ import StartLocation from "./components/StartLocation/StartLocation";
 import {Route, Routes} from 'react-router-dom'
 import Kitchen from "./components/Kitchen/Kitchen";
 
+
 const tg = window.Telegram.WebApp
 
 function App() {
@@ -16,9 +17,9 @@ function App() {
 
   return (
     <div className="App">
-
         <Routes>
-            <Route index element = {<StartLocation/>}/>
+            <Route path="/" element={<StartLocation />} />
+            <Route path={'/home'}  element = {<StartLocation/>}/>
             <Route path={'/kitchen'} element = {<Kitchen/>}/>
 
         </Routes>

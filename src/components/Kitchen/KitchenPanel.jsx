@@ -5,16 +5,18 @@ import milk from '../../images/milk.png'
 import fish from '../../images/fish.png'
 import vege from '../../images/veget.png'
 
-const KitchenPanel = (props) =>  {
+const KitchenPanel = ({setBarWidth}) =>  {
 
-    const handleWidth = (item) => {
-        const allWidths = menuItems.reduce((sum, menuItem) => sum + menuItem.width, 0);
-        const coefficient = 100 / allWidths;
-        const currentWidthValue = props.barWidth ? parseInt(props.barWidth.slice(0,-1)) : 0;
-        const newWidthValue = currentWidthValue + item.width * coefficient;
-        const newWidth = newWidthValue > 100 ? "100%" : `${newWidthValue}%`;
-        props.onBarWidthChange(newWidth);
+
+    const handleWidth = () => {
+        setBarWidth((prevWidth) => {
+            const numericWidth = parseInt(prevWidth, 10); // Преобразование предыдущего значения в число
+            const newWidth = numericWidth + 10; // Добавление 10%
+            return `${newWidth}%`; // Возвращение нового значения с добавленным процентом
+        });
     };
+
+
 
     const menuItems = [
         { icon: meet, label: "мясо", width: 10 },
@@ -28,7 +30,7 @@ const KitchenPanel = (props) =>  {
             <nav className={styles.navigation}>
                 <ul>
                     {menuItems.map((item, index) => (
-                        <li key={index} onClick={() => handleWidth(item, item.width)}>
+                        <li key={index} onClick={handleWidth}>
                             <img src={item.icon} alt="" />
                             <span>{item.label}</span>
                         </li>
