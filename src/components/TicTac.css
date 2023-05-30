@@ -1,3 +1,9 @@
+.ulala{
+    background: #00C4B9;
+    width: 100%;
+}
+
+
 .board {
     margin: 50px auto;
     display: flex;

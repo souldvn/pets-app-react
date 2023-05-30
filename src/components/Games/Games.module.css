@@ -1,0 +1,33 @@
+
+.games{
+    width: 100vh;
+    background: #00C4B9;
+    height: 100vh;
+}
+
+.change{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 100px;
+
+}
+
+.minig{
+    width: 216px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.home{
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    background: #FFFFFF;
+    position: absolute;
+    bottom: 100px;
+    border-radius: 20px;
+}

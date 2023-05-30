@@ -30,7 +30,7 @@ import { useNavigate } from 'react-router-dom';
                             <img className='menu-image' src={walk} alt=''/>
                             <span>гулять</span>
                         </li>
-                        <li>
+                        <li onClick={() => handleClick('/games')}>
                             <img className='menu-image' src={play} alt=''/>
                             <span>играть</span>
                         </li>
