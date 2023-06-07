@@ -21,17 +21,36 @@
     display: flex;
     flex-direction: column;
 }
-
-.progress_bar{
+.progress_bar_emotional{
     background: #FFFFFF;
     border-radius: 100px;
     width: 152px;
     height: 8px;
-
+}
+.progress_bar_satiety{
+    background: #FFFFFF;
+    border-radius: 100px;
+    width: 152px;
+    height: 8px;
+}
+.progress_bar_energy{
+    background: #FFFFFF;
+    border-radius: 100px;
+    width: 152px;
+    height: 8px;
 }
 
-.success{
-
+.success_energy{
+    height: 100%;
+    border-radius: 100px;
+    background: #4EF387;
+}
+.success_satiety{
+    height: 100%;
+    border-radius: 100px;
+    background: #4EF387;
+}
+.success_emotional{
     height: 100%;
     border-radius: 100px;
     background: #4EF387;

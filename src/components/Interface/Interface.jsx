@@ -1,25 +1,46 @@
 import React, { useContext, useEffect } from 'react';
 import styles from './Interface.module.css';
 import coin from '../../images/монетка.png';
-import {BarWidthContext} from "../Context/Context";
+import { BarWidthContext } from '../Context/Context';
 
 const Interface = () => {
-    const { barWidth, updateBarWidth } = useContext(BarWidthContext);
+    const { barWidth, updateBarWidth, energyLevel, setEnergyLevel } = useContext(BarWidthContext);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             updateBarWidth((prevWidth) => {
                 const newWidth = parseFloat(prevWidth) - 0.05;
-                return `${newWidth}%`;
+                const clampedWidth = clampValue(newWidth, 1, 100);
+                return `${clampedWidth}%`;
             });
+
+            setEnergyLevel((prevEnergyLevel) => prevEnergyLevel - 0.05);
         }, 1000);
 
         return () => clearInterval(intervalId);
-    }, [updateBarWidth]);
+    }, [updateBarWidth, setEnergyLevel]);
 
-    const color = barWidth <= '30%' ? 'red' : barWidth <= '70%' ? 'orange' : '';
+    const clampValue = (value, min, max) => {
+        return Math.min(Math.max(value, min), max);
+    };
 
-    console.log(barWidth)
+
+    const colorEnergy =
+        barWidth <= '30%'
+            ? 'red'
+            : barWidth <= '70%'
+                ? 'orange'
+                : '';
+
+
+    const colorSatiety =
+        barWidth <= '30%'
+            ? 'red'
+            : barWidth <= '70%'
+                ? 'orange'
+                : '';
+
+    console.log(barWidth);
 
     return (
         <div className={styles.interface}>
@@ -27,20 +48,26 @@ const Interface = () => {
                 <ul className={styles.progress}>
                     <li>
                         <span>настроение</span>
-                        <div className={styles.progress_bar}>
-                            <div className={styles.success}></div>
+                        <div className={styles.progress_bar_emotional}>
+                            <div className={styles.success_emotional}></div>
                         </div>
                     </li>
                     <li>
                         <span>сытость</span>
-                        <div className={styles.progress_bar}>
-                            <div style={{ width: `${barWidth}`, background: color}} className={styles.success}></div>
+                        <div className={styles.progress_bar_satiety}>
+                            <div
+                                style={{ width: `${barWidth}`, background: colorSatiety }}
+                                className={styles.success_satiety}
+                            ></div>
                         </div>
                     </li>
                     <li>
                         <span>энергия</span>
-                        <div className={styles.progress_bar}>
-                            <div className={styles.success}></div>
+                        <div className={styles.progress_bar_energy}>
+                            <div
+                                style={{ width: `${energyLevel}%`, background: colorEnergy }}
+                                className={styles.success_energy}
+                            ></div>
                         </div>
                     </li>
                 </ul>

@@ -2,11 +2,20 @@ import React, { useState, useEffect } from 'react';
 import './TicTac.css';
 import pet from '../images/pet.png';
 import anot from '../images/anot.png';
+import back from '../images/back.png'
+import {useNavigate} from "react-router-dom";
+
 
 const TicTacToe = () => {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [player, setPlayer] = useState('X');
     const [winner, setWinner] = useState(null);
+
+    const navigate = useNavigate()
+
+    const handleClick = () =>{
+        navigate(`/games`)
+    }
 
     useEffect(() => {
         const winningConditions = [
@@ -138,9 +147,15 @@ const TicTacToe = () => {
                 <button className="button" onClick={resetBoard}>
                     Заново
                 </button>
+                <img className="backButton" src={back} onClick={handleClick} alt=""/>
             </div>
         </div>
     );
 };
 
 export default TicTacToe;
+
+
+
+
+

@@ -6,6 +6,8 @@ import Kitchen from "./components/Kitchen/Kitchen";
 import {BarWidthProvider} from "./components/Context/Context";
 import Games from "./components/Games/Games";
 import TicTac from "./components/TicTac";
+import Numbers from "./components/Numbers";
+import Sleep from "./components/Sleep/Sleep";
 
 
 const tg = window.Telegram.WebApp
@@ -26,8 +28,9 @@ function App() {
                   <Route path="/home" element={<StartLocation />} />
                   <Route path="/kitchen" element={<Kitchen />} />
                   <Route path="/games/*" element={<Games />} />
-                  <Route path="/games/tictac" element={<TicTac />} /> {/* Add this route */}
-
+                  <Route path="/games/tictac" element={<TicTac />} />
+                  <Route path="/games/numbers" element={<Numbers />} />
+                  <Route path="/sleep" element={<Sleep />} />
               </Routes>
           </div>
       </BarWidthProvider>

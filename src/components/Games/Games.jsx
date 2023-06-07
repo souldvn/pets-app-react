@@ -18,8 +18,8 @@ const Games = () => {
                 <li onClick={() => handleClick('/games/tictac')} className={styles.minig}>
                     крестики-нолики
                 </li>
-                <li className={styles.minig}>рыбалка</li>
-                <li className={styles.minig}>слова</li>
+                <li onClick={() => handleClick('/games/numbers')} className={styles.minig}>угадайка</li>
+
             </ul>
             <img onClick={() => handleClick('/home')} className={styles.home} src={home} alt=""/>
             <PanelMenu />

@@ -5,11 +5,11 @@ import KitchenPanel from './KitchenPanel';
 import Interface from '../Interface/Interface';
 import home from '../../images/домой.png';
 import { useNavigate } from 'react-router-dom';
-import {BarWidthContext} from "../Context/Context";
+import { BarWidthContext } from '../Context/Context';
 
 const Kitchen = () => {
     const navigate = useNavigate();
-    const { barWidth, updateBarWidth } = useContext(BarWidthContext);
+    const { barWidth, updateBarWidth, energyLevel } = useContext(BarWidthContext);
 
     const handleClick = () => {
         navigate(`/home?barWidth=${barWidth}`);
@@ -17,15 +17,14 @@ const Kitchen = () => {
 
     return (
         <div className={styles.wrapper}>
-            <Interface barWidth={barWidth} setBarWidth={updateBarWidth} />
+            <Interface />
             <img className={styles.mainpic} src={pet} alt="" />
             <div onClick={handleClick} className={styles.home}>
                 <img src={home} alt="" />
             </div>
-            <KitchenPanel setBarWidth={updateBarWidth} barWidth={barWidth} />
+            <KitchenPanel setBarWidth={updateBarWidth} barWidth={barWidth} energyLevel={energyLevel} />
         </div>
     );
 };
 
 export default Kitchen;
-
