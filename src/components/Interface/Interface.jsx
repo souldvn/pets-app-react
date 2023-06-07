@@ -29,7 +29,7 @@ const Interface = () => {
         barWidth <= '30%'
             ? 'red'
             : barWidth <= '70%'
-                ? 'orange'
+                ? 'orange '
                 : '';
 
 
