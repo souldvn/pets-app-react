@@ -14,7 +14,10 @@ const Interface = () => {
                 return `${clampedWidth}%`;
             });
 
-            setEnergyLevel((prevEnergyLevel) => prevEnergyLevel - 0.05);
+            setEnergyLevel((prevEnergyLevel) => {
+                const newEnergyLevel = prevEnergyLevel - 0.05;
+                return clampValue(newEnergyLevel, 1, 100);
+            });
         }, 1000);
 
         return () => clearInterval(intervalId);
@@ -41,6 +44,8 @@ const Interface = () => {
                 : '';
 
     console.log(barWidth);
+    console.log('energy',energyLevel);
+
 
     return (
         <div className={styles.interface}>

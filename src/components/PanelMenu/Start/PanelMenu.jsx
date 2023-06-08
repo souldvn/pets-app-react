@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './PanelMenu.css';
 import sleep from '../../../images/спать.png';
 import eat from '../../../images/dog-bowl.png';
@@ -9,26 +9,39 @@ import { BarWidthContext } from "../../Context/Context";
 import Sleep from "../../Sleep/Sleep";
 
 const PanelMenu = () => {
-    const { setEnergyLevel } = useContext(BarWidthContext);
+    const { energyLevel, setEnergyLevel } = useContext(BarWidthContext);
     const navigate = useNavigate();
     const [isSleeping, setIsSleeping] = useState(false); // Состояние для управления видимостью компонента Sleep
 
     const handleClick = (path) => {
-        if (path === '/sleep') {
+        if (path === '/sleep' && energyLevel <= 50) {
+            navigate('/sleep');
             setIsSleeping(true); // Установка состояния isSleeping в true для открытия компонента Sleep
             setTimeout(() => {
                 setEnergyLevel(100);
-                setIsSleeping(false); // Установка состояния isSleeping в false для закрытия компонента Sleep после 10 секунд
+                navigate('/home')
+                setTimeout(() => {
+                    setIsSleeping(false); // Установка состояния isSleeping в false для закрытия компонента Sleep
+                }, 500); // Дополнительная задержка в 0.5 секунды перед закрытием компонента Sleep
             }, 10000);
+        } else if (path === '/sleep' && energyLevel > 50) {
+            console.log('rebeka'); // Вывод сообщения в консоль
+        } else {
+            navigate(path);
         }
-        navigate(path);
     };
+
+    useEffect(() => {
+        if (energyLevel >= 50) {
+            setIsSleeping(false);
+        }
+    }, [energyLevel]);
 
     return (
         <div className="menu">
             <nav className="navigation">
                 <ul>
-                    <li onClick={() => handleClick('/sleep')}>
+                    <li onClick={() => handleClick('/sleep')} className={energyLevel <= 50 ? 'active' : ''}>
                         <img className="menu-image" src={sleep} alt="" />
                         <span>спать</span>
                     </li>
@@ -52,3 +65,4 @@ const PanelMenu = () => {
 };
 
 export default PanelMenu;
+
