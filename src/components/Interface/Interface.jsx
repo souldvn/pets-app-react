@@ -4,7 +4,7 @@ import coin from '../../images/монетка.png';
 import { BarWidthContext } from '../Context/Context';
 
 const Interface = () => {
-    const { barWidth, updateBarWidth, energyLevel, setEnergyLevel } = useContext(BarWidthContext);
+    const { barWidth, updateBarWidth, energyLevel, setEnergyLevel, emotional, setEmotional } = useContext(BarWidthContext);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -18,10 +18,14 @@ const Interface = () => {
                 const newEnergyLevel = prevEnergyLevel - 0.05;
                 return clampValue(newEnergyLevel, 1, 100);
             });
+            setEmotional((prevEmotional) => {
+                const newEmotional = prevEmotional -0.05;
+                return clampValue(newEmotional, 1, 100);
+            });
         }, 1000);
 
         return () => clearInterval(intervalId);
-    }, [updateBarWidth, setEnergyLevel]);
+    }, [updateBarWidth, setEnergyLevel, setEmotional]);
 
     const clampValue = (value, min, max) => {
         return Math.min(Math.max(value, min), max);
@@ -45,7 +49,7 @@ const Interface = () => {
 
     console.log(barWidth);
     console.log('energy',energyLevel);
-
+    console.log('emotional', emotional);
 
     return (
         <div className={styles.interface}>
@@ -54,7 +58,7 @@ const Interface = () => {
                     <li>
                         <span>настроение</span>
                         <div className={styles.progress_bar_emotional}>
-                            <div className={styles.success_emotional}></div>
+                            <div style={{ width: `${emotional}%`}} className={styles.success_emotional}></div>
                         </div>
                     </li>
                     <li>

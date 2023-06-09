@@ -7,11 +7,13 @@ import play from '../../../images/игра.png';
 import { useNavigate } from 'react-router-dom';
 import { BarWidthContext } from "../../Context/Context";
 import Sleep from "../../Sleep/Sleep";
+import Walk from "../../Walk/Walk";
 
 const PanelMenu = () => {
-    const { energyLevel, setEnergyLevel } = useContext(BarWidthContext);
+    const { energyLevel, setEnergyLevel, emotional, setEmotional } = useContext(BarWidthContext);
     const navigate = useNavigate();
     const [isSleeping, setIsSleeping] = useState(false); // Состояние для управления видимостью компонента Sleep
+    const [isWalking, setIsWalking] = useState(false);
 
     const handleClick = (path) => {
         if (path === '/sleep' && energyLevel <= 50) {
@@ -25,9 +27,27 @@ const PanelMenu = () => {
                 }, 500); // Дополнительная задержка в 0.5 секунды перед закрытием компонента Sleep
             }, 10000);
         } else if (path === '/sleep' && energyLevel > 50) {
-            console.log('rebeka'); // Вывод сообщения в консоль
-        } else {
-            navigate(path);
+            console.log('rebeka');
+            return;// Вывод сообщения в консоль
+        }
+        if (path === '/walk' && emotional <= 50) {
+            navigate('/walk');
+            setIsWalking(true); // Установка состояния isSleeping в true для открытия компонента Sleep
+            setTimeout(() => {
+                setEmotional(100);
+                navigate('/home')
+                setTimeout(() => {
+                    setIsWalking(false); // Установка состояния isSleeping в false для закрытия компонента Sleep
+                }, 500); // Дополнительная задержка в 0.5 секунды перед закрытием компонента Sleep
+            }, 10000);
+        } else if (path === '/walk' && energyLevel > 50) {
+            console.log('chlen');
+            return// Вывод сообщения в консоль
+        }
+        if(path ==='/kitchen'){
+            navigate('/kitchen')
+        } else if (path=== '/games'){
+            navigate('/games')
         }
     };
 
@@ -49,7 +69,7 @@ const PanelMenu = () => {
                         <img className="menu-image" src={eat} alt="" />
                         <span>кормить</span>
                     </li>
-                    <li>
+                    <li onClick={() => handleClick('/walk')} className={emotional <= 50 ? 'active' : ''}>
                         <img className="menu-image" src={walk} alt="" />
                         <span>гулять</span>
                     </li>
@@ -59,10 +79,10 @@ const PanelMenu = () => {
                     </li>
                 </ul>
             </nav>
-            {isSleeping && <Sleep />} {/* Рендер компонента Sleep, если isSleeping равно true */}
+            {isSleeping && <Sleep />}
+            {isWalking && <Walk />}{/* Рендер компонента Sleep, если isSleeping равно true */}
         </div>
     );
 };
 
 export default PanelMenu;
-
