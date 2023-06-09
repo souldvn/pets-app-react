@@ -8,7 +8,6 @@
 }
 
 .App{
-    margin: 0 auto;
     display: flex;
     width: 100%;
     /*background: -webkit-linear-gradient(90deg, #fef1d9,#c7e0f3);*/
@@ -23,4 +22,5 @@ body {
 
     color: var(--tg-theme-text-color);
 }
+
 

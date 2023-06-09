@@ -1,6 +1,6 @@
 import React from 'react';
 import {useNavigate } from 'react-router-dom';
-import PanelMenu from "../PanelMenu/Start/PanelMenu";
+// import PanelMenu from "../PanelMenu/Start/PanelMenu";
 import styles from './Games.module.css';
 import home from '../../images/домой.png';
 
@@ -22,7 +22,7 @@ const Games = () => {
 
             </ul>
             <img onClick={() => handleClick('/home')} className={styles.home} src={home} alt=""/>
-            <PanelMenu />
+            {/*<PanelMenu />*/}
 
         </div>
     );

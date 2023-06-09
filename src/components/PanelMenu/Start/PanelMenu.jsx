@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import './PanelMenu.css';
+import styles from './PanelMenu.module.css';
 import sleep from '../../../images/спать.png';
 import eat from '../../../images/dog-bowl.png';
 import walk from '../../../images/лапа.png';
@@ -76,8 +76,8 @@ const PanelMenu = () => {
     }, [energyLevel]);
 
     return (
-        <div className="menu">
-            <nav className="navigation">
+        <div className={styles.menu}>
+            <nav className={styles.navigation}>
                 <ul>
                     <li onClick={() => handleClick('/sleep')} className={energyLevel <= 50 ? 'active' : ''}>
                         <img className="menu-image" src={sleep} alt="" />
