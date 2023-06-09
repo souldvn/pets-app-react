@@ -9,17 +9,17 @@ const Interface = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             updateBarWidth((prevWidth) => {
-                const newWidth = parseFloat(prevWidth) - 0.05;
+                const newWidth = parseFloat(prevWidth) - 4;
                 const clampedWidth = clampValue(newWidth, 1, 100);
                 return `${clampedWidth}%`;
             });
 
             setEnergyLevel((prevEnergyLevel) => {
-                const newEnergyLevel = prevEnergyLevel - 0.05;
+                const newEnergyLevel = prevEnergyLevel - 4;
                 return clampValue(newEnergyLevel, 1, 100);
             });
             setEmotional((prevEmotional) => {
-                const newEmotional = prevEmotional -0.05;
+                const newEmotional = prevEmotional -4;
                 return clampValue(newEmotional, 1, 100);
             });
         }, 1000);
