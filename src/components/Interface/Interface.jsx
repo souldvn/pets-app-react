@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import styles from './Interface.module.css';
-import coin from '../../images/монетка.png';
+// import coin from '../../images/монетка.png';
 import { BarWidthContext } from '../Context/Context';
 
 const Interface = () => {
@@ -9,17 +9,17 @@ const Interface = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             updateBarWidth((prevWidth) => {
-                const newWidth = parseFloat(prevWidth) - 4;
+                const newWidth = parseFloat(prevWidth) - 1.2;
                 const clampedWidth = clampValue(newWidth, 1, 100);
                 return `${clampedWidth}%`;
             });
 
             setEnergyLevel((prevEnergyLevel) => {
-                const newEnergyLevel = prevEnergyLevel - 4;
+                const newEnergyLevel = prevEnergyLevel - 0.7;
                 return clampValue(newEnergyLevel, 1, 100);
             });
             setEmotional((prevEmotional) => {
-                const newEmotional = prevEmotional -4;
+                const newEmotional = prevEmotional -0.5;
                 return clampValue(newEmotional, 1, 100);
             });
         }, 1000);
@@ -31,19 +31,26 @@ const Interface = () => {
         return Math.min(Math.max(value, min), max);
     };
 
+    const colorEmotional =
+        emotional <= '30'
+            ? 'red'
+            : emotional <= '70'
+                ? 'orange '
+                : '';
+
 
     const colorEnergy =
-        barWidth <= '30%'
+        energyLevel <= '30'
             ? 'red'
-            : barWidth <= '70%'
+            : energyLevel <= '70'
                 ? 'orange '
                 : '';
 
 
     const colorSatiety =
-        barWidth <= '30%'
+        barWidth <= '30'
             ? 'red'
-            : barWidth <= '70%'
+            : barWidth <= '70'
                 ? 'orange'
                 : '';
 
@@ -58,7 +65,7 @@ const Interface = () => {
                     <li>
                         <span>настроение</span>
                         <div className={styles.progress_bar_emotional}>
-                            <div style={{ width: `${emotional}%`}} className={styles.success_emotional}></div>
+                            <div style={{ width: `${emotional}%`, background: colorEmotional}} className={styles.success_emotional}></div>
                         </div>
                     </li>
                     <li>
@@ -81,10 +88,10 @@ const Interface = () => {
                     </li>
                 </ul>
             </div>
-            <div className={styles.money}>
-                <img className={styles.coin} src={coin} alt="" />
-                <span>144</span>
-            </div>
+            {/*<div className={styles.money}>*/}
+            {/*    <img className={styles.coin} src={coin} alt="" />*/}
+            {/*    <span>144</span>*/}
+            {/*</div>*/}
         </div>
     );
 };

@@ -9,6 +9,8 @@ import Interface from '../Interface/Interface';
 const StartLocation = () => {
 
 
+
+
     return (
         <div className={styles.wrapper}>
             <Interface />

@@ -24,7 +24,7 @@ const Walk = () => {
 
     return (
         <div className={styles.wrapper}>
-            <div className ={styles.clock}>{count}</div>
+            <div className ={styles.clock}>{count}сек</div>
         </div>
     );
 };
